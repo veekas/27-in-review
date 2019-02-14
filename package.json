@@ -5,6 +5,8 @@
   "version": "0.0.1",
   "author": "Veekas Shrivastava <veekas@veekasmeansprogress.com>",
   "dependencies": {
+    "@emotion/core": "10.0.7",
+    "@emotion/styled": "10.0.7",
     "gatsby": "^2.0.118",
     "gatsby-image": "^2.0.29",
     "gatsby-plugin-emotion": "4.0.3",
@@ -34,15 +36,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/veekas/27-in-review"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
-  },
-  "eslintConfig": {
-    "extends": [
-      "eslint:recommended",
-      "plugin:react/recommended"
-    ]
+    "url": "https://github.com/veekas/27-in-review/issues"
   }
 }
