@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Veekas Shrivastava - 27 In Review`,
+    title: `Veekas Shrivastava's 27: Year-In-Review`,
     description: `A recap of Veekas Shrivastava's 27th year alive.`,
     author: `@veekas`,
   },
@@ -18,16 +18,16 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Veekas Shrivastava's 27: Year-In-Review`,
+        short_name: `Veekas Year-In-Review`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `lightgray`,
+        theme_color: `#0098aa`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // relative to site root
+        icon: `src/images/vmp-logo-gold.png`,
       },
     },
-    'gatsby-plugin-offline',
     `gatsby-plugin-emotion`,
+    'gatsby-plugin-offline', // must be after 'gatsby-plugin-manifest'
   ],
 }

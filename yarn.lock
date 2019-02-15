@@ -10603,6 +10603,11 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
+typeface-poppins@0.0.54:
+  version "0.0.54"
+  resolved "http://local-npm-proxy.elasticbeanstalk.com/typeface-poppins/-/typeface-poppins-0.0.54.tgz#58c90da107a14db1e359f4d339cb2cc8e098d37b"
+  integrity sha512-VQyXtQJdr4jxHIyZWR6SkBjkqf5opHF4cx5C7A48mfL60ahYLN2fGtsN9qAgJ6YyRvOLpDn64czfn+/tWwSE/g==
+
 ua-parser-js@^0.7.18:
   version "0.7.19"
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.19.tgz#94151be4c0a7fb1d001af7022fdaca4642659e4b"
