@@ -6,7 +6,7 @@ import { css } from '@emotion/core';
 
 const HeaderContainer = styled.header`
   position: sticky;
-  background: white;
+  background: whitesmoke;
   padding: 5px 20px;
 `;
 
@@ -14,30 +14,29 @@ const HeaderText = styled.h1`
   display: flex;
   justify-content: center;
   margin: 0 auto;
-  color: #0098aa;
+  color: var(--vmpTeal);
+  text-align: center;
+  line-height: 1.3em;
 `;
 
 const noWrap = css`
   white-space: nowrap;
 `;
 
-const link = css`
-  color: #0098aa;
-  text-decoration: none;
-`;
+const Header = ({ show, siteTitle }) => {
+  if (!show) return null;
 
-const Header = ({ siteTitle }) => {
   const cleanSiteTitle = siteTitle
     .split(' ')
-    .map(str => str.includes('-')
-      ? <span key={str} css={noWrap}>{str}</span>
+    .map(str => str.includes("'")
+      ? <span key={str} css={noWrap}>{str} </span>
       : <span key={str}>{str} </span>
     );
 
   return (
     <HeaderContainer>
       <HeaderText>
-        <Link to="/" css={link}>
+        <Link to="/">
           {cleanSiteTitle}
         </Link>
       </HeaderText>
@@ -46,6 +45,7 @@ const Header = ({ siteTitle }) => {
 }
 
 Header.propTypes = {
+  show: PropTypes.bool.isRequired,
   siteTitle: PropTypes.string.isRequired,
 };
 

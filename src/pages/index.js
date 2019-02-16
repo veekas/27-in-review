@@ -1,17 +1,41 @@
 import React from 'react';
-import 'typeface-poppins';
+import { StaticQuery, graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
-import SEO from '../components/seo';
+import SEO from '../components/SEO';
+import Intro from '../views/Intro';
+import Section2 from '../views/Section2';
+import Section3 from '../views/Section3';
+
+import './index.css';
+import 'typeface-poppins';
 
 const IndexPage = () => (
-  <Layout>
-    <SEO
-      title="Veekas Shrivastava - 27: Year In Review"
-      keywords={['veekas', 'shrivastava', 'year in review']}
-    />
-    {/* stuff will go here */}
-  </Layout>
+  <StaticQuery
+    query={graphql`
+      query SiteTitleQuery {
+        site {
+          siteMetadata {
+            title
+          }
+        }
+      }
+    `}
+    render={data => {
+      const title = data.site.siteMetadata.title;
+      return (
+        <Layout siteTitle={title}>
+          <SEO
+            title={title}
+            keywords={['veekas', 'shrivastava', 'year in review']}
+          />
+          <Intro />
+          <Section2 />
+          <Section3 />
+        </Layout>
+      )
+    }}
+  />
 );
 
 export default IndexPage;

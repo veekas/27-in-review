@@ -3,8 +3,11 @@
     "eslint:recommended",
     "plugin:react/recommended"
   ],
+  "globals": {
+    "window": true
+  },
+  "parser": "babel-eslint",
   "parserOptions": {
     "sourceType": "module"
-  },
-  "parser": "babel-eslint"
+  }
 }

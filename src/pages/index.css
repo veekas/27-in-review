@@ -1,3 +1,9 @@
+:root {
+  --vmpGold: #f7cd0f;
+  --vmpTeal: #0098aa;
+  --vmpDarkTeal: #016a77;
+}
+
 /* set width, height, & min/max properties to include content, padding, & border */
 *, *:before, *:after {
   -webkit-box-sizing: border-box;
@@ -11,7 +17,16 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  color: #0098aa;
-  background-color: lightgray;
+  color: var(--vmpTeal);
+  background-color: whitesmoke;
   font-family: 'Poppins', Helvetica, sans-serif; /* importing fonts with typeface package */
+}
+
+a {
+  color: var(--vmpTeal);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--vmpDarkTeal);
 }

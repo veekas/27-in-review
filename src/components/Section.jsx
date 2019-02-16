@@ -1,16 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from '@emotion/styled';
 
-const Section = ({ children }) => {
+const Section = ({ children, bgColor, id }) => {
+  const SectionWrapper = styled.section`
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: ${bgColor};
+    background-image: radial-gradient(ellipse at center, rgba(0,0,0,0) 30%, rgba(0,0,0,0.3) 100%);
+    background-repeat: repeat;
+  `;
+
   return (
-    <section>
+    <SectionWrapper id={id}>
       {children}
-    </section>
-  )
+    </SectionWrapper>
+  );
 }
 
 Section.propTypes = {
-  children: PropTypes.node.isRequired,
+  bgColor: PropTypes.string,
+  children: PropTypes.node,
+  id: PropTypes.string.isRequired,
+}
+
+Section.defaultProps = {
+  bgColor: 'BurlyWood',
+  children: null,
 }
 
 export default Section;
