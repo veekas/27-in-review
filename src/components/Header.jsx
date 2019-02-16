@@ -5,7 +5,6 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 const HeaderContainer = styled.header`
-  position: sticky;
   background: whitesmoke;
   padding: 10px 20px;
   letter-spacing: 0.0625em;
@@ -37,7 +36,7 @@ const Header = ({ show, siteTitle }) => {
   return (
     <HeaderContainer>
       <HeaderText>
-        <Link to="/">
+        <Link to="#intro">
           {cleanSiteTitle}
         </Link>
       </HeaderText>

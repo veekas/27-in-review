@@ -1,8 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import Header from './Header';
 import Footer from './Footer';
+
+import './transitions.css';
 
 class Layout extends Component {
   state = {
@@ -22,7 +25,7 @@ class Layout extends Component {
   }
 
   // don't show the header until the user has scrolled or page loads on a certain div id
-  handleHeaderVisibility = e => {
+  handleHeaderVisibility = () => {
     if (window.scrollY !== 0) {
       this.setState({ showHeader: true })
     }
@@ -33,11 +36,18 @@ class Layout extends Component {
 
     return (
       <Fragment>
-        <Header show={showHeader} siteTitle={this.props.siteTitle} />
-        <main>
-          {this.props.children}
-        </main>
-        <Footer />
+        <ReactCSSTransitionGroup
+          transitionName="layout"
+          transitionEnter={false}
+          transitionAppear={true}
+          transitionAppearTimeout={1000}
+        >
+          <Header show={showHeader} siteTitle={this.props.siteTitle} />
+          <main>
+            {this.props.children}
+          </main>
+          <Footer />
+        </ReactCSSTransitionGroup>
       </Fragment>
     );
   }

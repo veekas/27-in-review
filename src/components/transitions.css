@@ -1,0 +1,8 @@
+.layout-appear {
+  opacity: 0.01;
+}
+
+.layout-appear.layout-appear-active {
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
