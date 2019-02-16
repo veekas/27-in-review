@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Veekas Shrivastava's 27: A Year-In-Review`,
+    title: `Veekas Shrivastava's Year-In-Review`,
     description: `A recap of Veekas Shrivastava's 27th year alive.`,
     author: `@veekas`,
   },
@@ -18,8 +18,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Veekas Shrivastava's 27: A Year-In-Review`,
-        short_name: `Veekas Year-In-Review`,
+        name: `Veekas Shrivastava's Year-In-Review`,
+        short_name: `Year-In-Review`,
         start_url: `/`,
         background_color: `whitesmoke`,
         theme_color: `#0098aa`,

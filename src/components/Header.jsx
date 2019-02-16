@@ -7,7 +7,8 @@ import { css } from '@emotion/core';
 const HeaderContainer = styled.header`
   position: sticky;
   background: whitesmoke;
-  padding: 5px 20px;
+  padding: 10px 20px;
+  letter-spacing: 0.0625em;
 `;
 
 const HeaderText = styled.h1`
@@ -28,7 +29,7 @@ const Header = ({ show, siteTitle }) => {
 
   const cleanSiteTitle = siteTitle
     .split(' ')
-    .map(str => str.includes("'")
+    .map(str => str.includes('-')
       ? <span key={str} css={noWrap}>{str} </span>
       : <span key={str}>{str} </span>
     );
