@@ -2,26 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 
-const ShadowContainer = styled.div`
-  --blur: 2px;
-  --borderWidth: 75%;
-  --picturePaddingWidth: calc(.15 * var(--borderWidth));
-
-  @media (min-width: 768px) {
-    --borderWidth: 55%;
-  }
-
-  display: flex;
-  justify-content: center;
-  width: var(--borderWidth);
-`;
-
 const Border = styled.div`
   box-sizing: border-box;
   position: relative;
-  background: black;
+  background: #383838;
   background-image: linear-gradient(to bottom left, #5D5D5B, #383838);
-  padding: 7px;
+  padding: var(--borderPadding);
   width: var(--borderWidth);
   box-shadow:
     -1px 1px var(--blur) 1px rgba(0,0,0,0.10),
@@ -41,25 +27,12 @@ const Border = styled.div`
     -15px 15px var(--blur) 1px rgba(0,0,0,0.01),
     -16px 16px var(--blur) 1px rgba(0,0,0,0.01)
   ;
+  border-radius: 2px;
   &:before{
     content: ' ';
     display: block;
     padding-bottom: 140%;
   }
-`;
-
-const Frame = styled.div`
-  left: 3%;
-  top: 2.5%;
-  box-shadow: inset -1px 1px 6px 1px rgba(0,0,0,.75);
-  width: 93.5%;
-  height: 95%;
-  background: whitesmoke;
-  align-items: center;
-  display: flex;
-  padding: var(--picturePaddingWidth);
-  box-sizing: border-box;
-  position: absolute;
 `;
 
 const ImageContainer = styled.div`
@@ -70,7 +43,46 @@ const ImageContainer = styled.div`
   background-position: center center;
 `;
 
-const PictureFrame = ({ children }) => {
+const PictureFrame = ({ children, orientation }) => {
+  const borderPaddingFactor = orientation === 'portrait' ? 0.02 : 0.50;
+  const borderWidthDesktopValue = (
+    orientation === 'portrait' ? '55%' : '61%'
+  );
+
+  const ShadowContainer = styled.div`
+    --blur: 2px;
+    --borderWidth: 75%;
+    --picturePadding: calc(.15 * var(--borderWidth));
+
+    --borderPaddingFactor: ${borderPaddingFactor};
+    --borderPadding: calc(var(--borderPaddingFactor) * var(--borderWidth));
+
+    @media (min-width: 768px) {
+      --borderWidth: ${borderWidthDesktopValue};
+    }
+
+    display: flex;
+    justify-content: center;
+    width: var(--borderWidth);
+  `;
+
+  const frameTopValue = orientation === 'portrait' ? '2.5%' : '3.5%';
+  const frameHeightValue = orientation === 'portrait' ? '95%' : '93%';
+
+  const Frame = styled.div`
+    left: 3%;
+    top: ${frameTopValue};
+    box-shadow: inset -1px 1px 6px 1px rgba(0,0,0,.75);
+    width: 93.5%;
+    height: ${frameHeightValue};
+    background: whitesmoke;
+    align-items: center;
+    display: flex;
+    padding: var(--picturePadding);
+    box-sizing: border-box;
+    position: absolute;
+  `;
+
   return (
     <ShadowContainer>
       <Border>
@@ -86,6 +98,7 @@ const PictureFrame = ({ children }) => {
 
 PictureFrame.propTypes = {
   children: PropTypes.node,
+  orientation: PropTypes.oneOf(['portrait', 'square']).isRequired, // TODO: add 'landscape'
 }
 
 PictureFrame.defaultProps = {

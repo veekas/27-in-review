@@ -5,7 +5,6 @@ import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import Intro from '../views/Intro';
 import Section2 from '../views/Section2';
-import Section3 from '../views/Section3';
 
 import './index.css';
 import 'typeface-poppins';
@@ -31,7 +30,6 @@ const IndexPage = () => (
           />
           <Intro />
           <Section2 />
-          <Section3 />
         </Layout>
       )
     }}

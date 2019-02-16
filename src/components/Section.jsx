@@ -12,7 +12,6 @@ const Section = ({ children, bgColor, id }) => {
     align-items: center;
 
     background-color: ${bgColor};
-    background-image: radial-gradient(ellipse at center, rgba(0,0,0,0) 30%, rgba(0,0,0,0.3) 100%);
     background-repeat: repeat;
   `;
 

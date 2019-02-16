@@ -6,8 +6,6 @@ import styled from '@emotion/styled';
 import PictureFrame from '../components/PictureFrame';
 import Section from '../components/Section';
 
-import { vmpGold } from '../utils/colors';
-
 const StyledImage = styled(Image)`
   height: 100%;
   width: auto;
@@ -19,7 +17,7 @@ const Intro = () => {
       query={
         graphql`
           query {
-            placeholderImage: file(relativePath: { eq: "vmp-logo-gold.png" }) {
+            placeholderImage: file(relativePath: { eq: "pup-tall.jpg" }) {
               childImageSharp {
                 fluid(maxWidth: 300) {
                   ...GatsbyImageSharpFluid
@@ -30,8 +28,8 @@ const Intro = () => {
         `
       }
       render={data => (
-        <Section id="intro" bgColor={vmpGold}>
-          <PictureFrame>
+        <Section id="intro" bgColor="BurlyWood">
+          <PictureFrame orientation="portrait">
             <StyledImage fluid={data.placeholderImage.childImageSharp.fluid} />
           </PictureFrame>
         </Section>

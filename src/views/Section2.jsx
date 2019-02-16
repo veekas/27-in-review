@@ -28,8 +28,8 @@ const Section2 = () => {
         `
       }
       render={data => (
-        <Section id="section2">
-          <PictureFrame>
+        <Section id="section2" bgColor="lightgray">
+          <PictureFrame orientation="square">
             <StyledImage fluid={data.placeholderImage.childImageSharp.fluid} />
           </PictureFrame>
         </Section>
