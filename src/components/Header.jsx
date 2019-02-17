@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
@@ -36,9 +35,9 @@ const Header = ({ show, siteTitle }) => {
   return (
     <HeaderContainer>
       <HeaderText>
-        <Link to="#intro">
+        <a href="#intro">
           {cleanSiteTitle}
-        </Link>
+        </a>
       </HeaderText>
     </HeaderContainer>
   );

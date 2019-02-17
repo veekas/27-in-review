@@ -39,6 +39,7 @@ class Layout extends Component {
         <ReactCSSTransitionGroup
           transitionName="layout"
           transitionEnter={false}
+          transitionLeave={false}
           transitionAppear={true}
           transitionAppearTimeout={1000}
         >

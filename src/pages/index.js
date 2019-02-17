@@ -1,39 +1,58 @@
 import React from 'react';
-import { StaticQuery, graphql } from 'gatsby';
+import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
 
+import FullBleedImage from '../components/FullBleedImage';
 import Layout from '../components/Layout';
+import PortraitFrame from '../components/PortraitFrame';
 import SEO from '../components/SEO';
-import Intro from '../views/Intro';
-import Section2 from '../views/Section2';
+import SquareFrame from '../components/SquareFrame';
 
 import './index.css';
 import 'typeface-poppins';
 
-const IndexPage = () => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-          }
-        }
+const IndexPage = ({ data }) => {
+  const siteTitle = data.site.siteMetadata.title;
+  const intro = data.intro.childImageSharp.fluid;
+
+  const portraitImage = data.portraitImage.childImageSharp.fluid;
+  const squareImage = data.squareImage.childImageSharp.fluid;
+
+  return (
+    <Layout siteTitle={siteTitle}>
+      <SEO
+        keywords={['veekas', 'shrivastava', 'year in review']}
+        title={siteTitle}
+      />
+      <FullBleedImage id="intro" image={intro} />
+      <PortraitFrame bgColor="lightgray" id="portrait-template" image={portraitImage} />
+      <SquareFrame bgColor="burlywood" id="square-template" image={squareImage} />
+    </Layout>
+  );
+};
+
+IndexPage.propTypes = {
+  data: PropTypes.shape({}).isRequired,
+}
+
+export const query = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
       }
-    `}
-    render={data => {
-      const title = data.site.siteMetadata.title;
-      return (
-        <Layout siteTitle={title}>
-          <SEO
-            title={title}
-            keywords={['veekas', 'shrivastava', 'year in review']}
-          />
-          <Intro />
-          <Section2 />
-        </Layout>
-      )
-    }}
-  />
-);
+    }
+
+    intro: file(relativePath: { eq: "asheville-mtn.jpg" }) {
+      ...fullBleedImage
+    }
+    portraitImage: file(relativePath: { eq: "pup-tall.jpg" }) {
+      ...portraitImage
+    }
+    squareImage: file(relativePath: { eq: "pup-wide.jpg" }) {
+      ...squareImage
+    }
+  }
+`
 
 export default IndexPage;

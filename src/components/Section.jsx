@@ -4,15 +4,14 @@ import styled from '@emotion/styled';
 
 const Section = ({ children, bgColor, id }) => {
   const SectionWrapper = styled.section`
-    width: 100%;
-    height: 100vh;
-
     display: flex;
     justify-content: center;
     align-items: center;
 
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
     background-color: ${bgColor};
-    background-repeat: repeat;
   `;
 
   return (
@@ -23,13 +22,12 @@ const Section = ({ children, bgColor, id }) => {
 }
 
 Section.propTypes = {
-  bgColor: PropTypes.string,
+  bgColor: PropTypes.string.isRequired,
   children: PropTypes.node,
   id: PropTypes.string.isRequired,
 }
 
 Section.defaultProps = {
-  bgColor: 'BurlyWood',
   children: null,
 }
 
