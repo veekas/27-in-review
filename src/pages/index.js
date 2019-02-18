@@ -17,8 +17,10 @@ const IndexPage = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title;
   const intro = data.intro.childImageSharp.fluid;
 
-  const portraitImage = data.portraitImage.childImageSharp.fluid;
-  const squareImage = data.squareImage.childImageSharp.fluid;
+  const ellie = data.ellie.childImageSharp.fluid;
+  const engaged = data.engaged.childImageSharp.fluid;
+  const santaMonica = data.santaMonica.childImageSharp.fluid;
+  const truman = data.truman.childImageSharp.fluid;
 
   return (
     <Layout>
@@ -32,12 +34,20 @@ const IndexPage = ({ data }) => {
         <FullBleedImage image={intro} />
       </Section>
 
-      <Section id="portrait-template" bgColor="lightgray">
-        <PictureFrame image={portraitImage} orientation="portrait" />
+      <Section id="engaged" bgColor="burlywood">
+      <PictureFrame image={engaged} orientation="portrait" />
       </Section>
 
-      <Section id="square-template" bgColor="burlywood">
-        <PictureFrame image={squareImage} orientation="square" />
+      <Section id="eleanor" bgColor="skyblue">
+        <PictureFrame image={ellie} orientation="portrait" />
+      </Section>
+
+      <Section id="truman-osito" bgColor="AntiqueWhite">
+        <PictureFrame image={truman} orientation="square" />
+      </Section>
+
+      <Section id="santa-monica" bgColor="salmon">
+        <PictureFrame image={santaMonica} orientation="portrait" />
       </Section>
     </Layout>
   );
@@ -58,11 +68,17 @@ export const query = graphql`
     intro: file(relativePath: { eq: "asheville-mtn.jpg" }) {
       ...fullBleedImage
     }
-    portraitImage: file(relativePath: { eq: "pup-tall.jpg" }) {
+    engaged: file(relativePath: { eq: "erin-ring.jpg" }) {
       ...portraitImage
     }
-    squareImage: file(relativePath: { eq: "pup-wide.jpg" }) {
+    ellie: file(relativePath: { eq: "ellie-happy.jpg" }) {
+      ...portraitImage
+    }
+    truman: file(relativePath: { eq: "tru-sun.jpg" }) {
       ...squareImage
+    }
+    santaMonica: file(relativePath: { eq: "sm-marg.jpg" }) {
+      ...portraitImage
     }
   }
 `

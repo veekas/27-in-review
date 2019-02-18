@@ -23,7 +23,7 @@ export const portraitImage = graphql`
 export const squareImage = graphql`
   fragment squareImage on File {
     childImageSharp {
-      fluid(maxWidth: 400, maxHeight: 400) {
+      fluid(maxWidth: 400, maxHeight: 400, cropFocus: CENTER) {
         ...GatsbyImageSharpFluid
       }
     }
