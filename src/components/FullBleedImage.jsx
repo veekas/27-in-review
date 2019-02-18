@@ -3,21 +3,16 @@ import PropTypes from 'prop-types';
 import Image from 'gatsby-image';
 import styled from '@emotion/styled';
 
-import Section from './Section';
-
 const StyledFullBleedImage = styled(Image)`
   min-height: 100%;
   min-width: 100%;
 `;
 
-const FullBleedImage = ({ id, image }) => (
-  <Section id={id} bgColor="rgba(0, 0, 0, 0)">
-    <StyledFullBleedImage fluid={image} />
-  </Section>
+const FullBleedImage = ({ image }) => (
+  <StyledFullBleedImage fluid={image} />
 );
 
 FullBleedImage.propTypes = {
-  id: PropTypes.string.isRequired,
   image: PropTypes.shape({
     aspectRatio: PropTypes.number.isRequired,
     base64: PropTypes.string.isRequired,

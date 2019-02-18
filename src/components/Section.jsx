@@ -7,6 +7,8 @@ const Section = ({ children, bgColor, id }) => {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    text-align: center;
 
     width: 100%;
     height: 100vh;

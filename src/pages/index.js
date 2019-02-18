@@ -4,9 +4,11 @@ import { graphql } from 'gatsby';
 
 import FullBleedImage from '../components/FullBleedImage';
 import Layout from '../components/Layout';
-import PortraitFrame from '../components/PortraitFrame';
+// import LayoutWithHeader from '../components/LayoutWithHeader';
+import PictureFrame from '../components/PictureFrame';
+import Section from '../components/Section';
 import SEO from '../components/SEO';
-import SquareFrame from '../components/SquareFrame';
+import Title from '../components/Title';
 
 import './index.css';
 import 'typeface-poppins';
@@ -19,14 +21,24 @@ const IndexPage = ({ data }) => {
   const squareImage = data.squareImage.childImageSharp.fluid;
 
   return (
-    <Layout siteTitle={siteTitle}>
+    <Layout>
       <SEO
         keywords={['veekas', 'shrivastava', 'year in review']}
         title={siteTitle}
       />
-      <FullBleedImage id="intro" image={intro} />
-      <PortraitFrame bgColor="lightgray" id="portrait-template" image={portraitImage} />
-      <SquareFrame bgColor="burlywood" id="square-template" image={squareImage} />
+
+      <Section id="intro" bgColor="rgba(0, 0, 0, 0)">
+        <Title />
+        <FullBleedImage image={intro} />
+      </Section>
+
+      <Section id="portrait-template" bgColor="lightgray">
+        <PictureFrame image={portraitImage} orientation="portrait" />
+      </Section>
+
+      <Section id="square-template" bgColor="burlywood">
+        <PictureFrame image={squareImage} orientation="square" />
+      </Section>
     </Layout>
   );
 };

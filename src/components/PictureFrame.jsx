@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Image from 'gatsby-image';
 import styled from '@emotion/styled';
 
 const Border = styled.div`
@@ -43,7 +44,12 @@ const ImageContainer = styled.div`
   background-position: center center;
 `;
 
-const PictureFrame = ({ children, orientation }) => {
+const StyledImage = styled(Image)`
+  height: 100%;
+  width: auto;
+`;
+
+const PictureFrame = ({ image, orientation }) => {
   const borderPaddingFactor = orientation === 'portrait' ? 0.02 : 0.50;
   const borderWidthDesktopValue = (
     orientation === 'portrait' ? '55%' : '61%'
@@ -88,7 +94,7 @@ const PictureFrame = ({ children, orientation }) => {
       <Border>
         <Frame>
           <ImageContainer>
-            {children}
+            <StyledImage fluid={image} />
           </ImageContainer>
         </Frame>
       </Border>
@@ -97,12 +103,14 @@ const PictureFrame = ({ children, orientation }) => {
 }
 
 PictureFrame.propTypes = {
-  children: PropTypes.node,
+  image: PropTypes.shape({
+    aspectRatio: PropTypes.number.isRequired,
+    base64: PropTypes.string.isRequired,
+    sizes: PropTypes.string.isRequired,
+    src: PropTypes.string.isRequired,
+    srcSet: PropTypes.string.isRequired,
+  }).isRequired,
   orientation: PropTypes.oneOf(['portrait', 'square']).isRequired, // TODO: add 'landscape'
-}
-
-PictureFrame.defaultProps = {
-  children: null,
 }
 
 export default PictureFrame;
