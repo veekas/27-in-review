@@ -34,7 +34,7 @@ const IndexPage = ({ data }) => {
         <FullBleedImage image={intro} />
       </Section>
 
-      <Section id="engaged" bgColor="burlywood">
+      <Section id="engaged" bgColor="SaddleBrown">
       <PictureFrame image={engaged} orientation="portrait" />
       </Section>
 

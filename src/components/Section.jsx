@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 
 const Section = ({ children, bgColor, id }) => {
+  // const gradient = `radial-gradient(at 70% 0%, transparent, ${bgColor} 30%)`;
   const SectionWrapper = styled.section`
     display: flex;
     justify-content: center;
@@ -13,6 +14,7 @@ const Section = ({ children, bgColor, id }) => {
     width: 100%;
     height: 100vh;
     overflow: hidden;
+    /* background-image: ${gradient}; */
     background-color: ${bgColor};
   `;
 
